@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="shortcut icon" href="img/logo.png">
+	<title>Data Scraping</title>
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.1.0/tabletop.min.js'></script>
+	<script type='text/javascript' src='js/sheetsee.js'></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript" src='js/bar.js'></script>
+	<script type="text/javascript" src='js/bubble.js'></script>
+	<script type="text/javascript" src='js/matrix.js'></script>
+	<script type="text/javascript" src='js/script.js'></script>
+	<link rel="stylesheet" type="text/css"  media="all" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+</head>
+
+<body>
+	<header>Top 500 songs since 2009</header>
+	<p>Using <a href="http://www.kimonolabs.com/welcome.html" target="_blank">Kimono</a>, I gathered songs that made it to the top 100 annual chart since 2009. I extracted additional information – such as gender of the artist(s) and song lyrics – using multiple APIs, including <a href="http://www.last.fm/api" target="_blank">last.fm</a> and <a href="http://www.lyricsnmusic.com/api" target="_blank">lyricsnmusic</a>. I filtered and cleaned the data using <a href="https://www.python.org/" target="_blank">Python</a>. The data is now located on Google Spreadsheets and is extracted thanks to <a href="https://github.com/jsoma/tabletop" target="_blank">tabletop.js</a> and <a href="http://jlord.github.io/sheetsee.js/" target="_blank">sheetsee.js</a>. It is visualized using <a href="http://d3js.org/" target="_blank">D3.js</a>. Some visualizations were easy to implement, while others more challenging. This assignment was exciting, informative and an absolute delight.</p>
+	<h1>artist popularity</h1>
+	<section id="line"></section>
+	<h1>genre popularity</h1>
+	<section id="bubble"></section>
+	<h1>success: male vs. female</h1>
+	<form>
+		<input type="radio" name="mode" class="css-checkbox" value="grouped" id="grouped"/>
+		<label for="grouped" class="css-label">grouped</label>
+		<input type="radio" name="mode" class="css-checkbox" value="stacked" id="stacked" checked/>
+		<label for="stacked" class="css-label">stacked</label>
+	</form>
+	<section id="bar"></section>
+	<article>
+		<label>top of the chart</label>
+		<img src="img/arrow.png">
+		<label>bottom of the chart</label>
+	</article>
+	<h1>common lyrics (90 tracks)</h1>
+	<form>
+		<select id="order">
+			<option value="name">ORDER BY TRACK</option>
+			<option value="count">ORDER BY WORD FREQUENCY</option>
+			<option value="group">ORDER BY ARTIST</option>
+		</select>
+	</form>
+	<section id="matrix"></section>
+</body>
+
+</html>
